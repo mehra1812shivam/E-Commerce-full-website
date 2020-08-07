@@ -1,0 +1,22 @@
+footer{
+    padding: 10px 0;
+    background-color: #101010;
+    color:white;
+    bottom: 0;
+    width: 100%;
+}
+
+a{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+}
+a:hover{
+    color: #EAF6F6;
+}
+container{
+    margin: 20px 0px;
+}
+body{
+    margin-top: 100px;
+}

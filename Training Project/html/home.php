@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<?php
+require '../includes/common.php';
+if (!isset($_SESSION['email']))
+ {   header('location: index.php'); }  
+?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="../bootstrap-3.4.1-dist/js/jquery-3.5.1.min.js"></script>
+    <script src="../bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/style4.css">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+    include'check_if_added.php';
+    ?>
+    <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="home.php">E-Store</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+                        <li><a href="settings.php"><span class="glyphicon glyphicon-user"></span>Settings</a></li>
+                        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="container" >
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 ">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Mobile 1</div>
+                        <div class="panel-body">
+                    <!--put mobile phone pics and its specifications in this box in all pannels. -->
+                            <center><img  class="img-responsive"  src="../images/oneplus5t.jpg">
+                            <b> One Plus 5T <br></b>Price:32,999/-</center>
+                            <p>Camera: 20+16 MP Dual rear camera | 16 MP front camera
+                                Display: 15.26 centimeters (6.01-inch) Full HD+ capacitive touchscreen Optic AMOLED display with 2160x1080 pixels and 18:9 aspect ratio | 2.5D Corning Gorilla Glass 5
+                                Memory, Storage & SIM: 4GB RAM | 64GB storage | Dual nano SIM with dual standby (4G+4G)
+                                Operating System and Processor: Android 7.1.1 Nougat Oxygen operating system based on with Qualcomm Snapdragon 835 octa core processor
+                                Battery: 3300 mAH lithium Polymer battery with Dash Charge technology
+                                Warranty: 1 year manufacturer warranty for device and in-box accessories including batteries from the date of purchase
+                                Included in box: Screen protector (pre-applied), Translucent case, Dash Type-C cable, Dash power adaptor</p>
+                                <?php if (!isset($_SESSION['email'])) { ?>
+                                <p><a href="index.php" role="button" class="btn btn-primary btn-block">Order Now</a></p>                                 <?php
+                                }
+                                 else {//We have created a function to check whether this particular product is added to cart or not.
+                                 if (check_if_added_to_cart(1)) { //This is same as if(check_if_added_to_cart != 0)
+                                 echo '<a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>';
+                                }       
+                                 else {?>
+                                 <a href="cart_add.php?id=1" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a>
+                                 <?php
+                                 }
+                                }
+                                ?> 
+
+                            <!-- <button class="btn btn-primary form-control" type="button" value="Submit"  name="btn">Add to Cart</button> -->
+
+
+                        </div>
+                </div>
+         </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Mobile 2</div>
+                <div class="panel-body">
+                    <!--put mobile phone pics and its specifications in this box in all pannels. -->
+                    <center><img  class="img-responsive" src="../images/iphonex.jpg">
+                    <b> Apple Iphone X <br></b>Price:78,459/-</center>
+                    <p>6.5-inch Super Retina display (OLED) with HDR
+                        IP68 dust and water resistant (maximum depth of 2 meters up to 30 minutes)
+                        12MP dual cameras with dual OIS and 7MP TrueDepth front camera—Portrait mode, Portrait Lighting, Depth Control, and Smart HDR
+                        Face ID for secure authentication
+                        A12 Bionic with next-generation Neural Engine
+                        Wireless charging—works with Qi chargers
+                        iOS 12 with Memoji, Screen Time, Siri Shortcuts, and Group FaceTime Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nihil blanditiis debitis beatae nam quidem ad! Deserunt saepe voluptates soluta quam, quod at suscipit debitis vitae sapiente ratione voluptas officia. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ipsum ducimus aliquam, molestias, saepe dolo</p>
+                        <?php if (!isset($_SESSION['email'])) { ?>
+                                <p><a href="index.php" role="button" class="btn btn-primary btn-block">Order Now</a></p>                                 <?php
+                                }
+                                 else {//We have created a function to check whether this particular product is added to cart or not.
+                                 if (check_if_added_to_cart(2)) { //This is same as if(check_if_added_to_cart != 0)
+                                 echo '<a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>';
+                                }       
+                                 else {?>
+                                 <a href="cart_add.php?id=2" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a>
+                                 <?php
+                                 }
+                                }
+                                ?> 
+                    <!-- <button class="btn btn-primary form-control" type="button" value="Submit"  name="btn" >Order Now!</button> -->
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Mobile 3</div>
+                <div class="panel-body" >
+                    <!--put mobile phone pics and its specifications in this box in all pannels. -->
+                    <center><img  class="img-responsive" src="../images/samsungs8.jpg">
+                    <b> Samsung S8 <br></b>Price:44,500/-</center>
+                    <p>12MP Ultra wide (123°) FF + F2.2 " Wide (77°) 12MP AF F1.7 Dual Pixel + Tele (45°) 12MP AF F2.4 OIS, 2x Zoom camera | 32MP front facing camera
+                        17.04 centimeters (6.7-inch) super Amoled infinity-O display and FHD+ capacitive multi-touch touchscreen with 2400 x 1080 pixels resolution | 16M color support
+                        Memory, Storage & SIM: 8GB RAM | 128GB internal memory expandable up to 1TB | Dual SIM dual-standby (4G+4G)
+                        Android v10.0 operating system with 2.7GHz+1.8GHz Exynos 9810 octa core processor
+                        4500mAH lithium-ion battery
+                        1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase
+                        Box also Includes: S-pen removable battery Lorem ipsum dolor sit, amet consectetur adipisici</p>
+                        <?php if (!isset($_SESSION['email'])) { ?>
+                                <p><a href="index.php" role="button" class="btn btn-primary btn-block">Order Now</a></p>                                 <?php
+                                }
+                                 else {//We have created a function to check whether this particular product is added to cart or not.
+                                 if (check_if_added_to_cart(3)) { //This is same as if(check_if_added_to_cart != 0)
+                                 echo '<a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>';
+                                }       
+                                 else {?>
+                                 <a href="cart_add.php?id=3" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a>
+                                 <?php
+                                 }
+                                }
+                                ?> 
+                    <!-- <button class="btn btn-primary form-control" type="button" value="Submit"  name="btn">Order Now!</button> -->
+
+
+                </div>
+            </div>
+        </div>	
+     </div>
+     
+     <div class="row">
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Mobile 4</div>
+                <div class="panel-body" >
+                    <!--put mobile phone pics and its specifications in this box in all pannels. -->
+                    <center><img  class="img-responsive" src="../images/iphone7s.jpg">
+                    <b> Apple Iphone 7S <br></b>Price:56,000/-</center>
+                    <p>4.7-inch Retina HD display
+                        IP67 water and dust resistant (maximum depth of 1 meter up to 30 minutes)
+                        12MP camera and 4K video
+                        7MP FaceTime HD camera with Retina Flash
+                        Touch ID for secure authentication
+                        A10 Fusion chip
+                        iOS 12 with Screen Time, Group FaceTime, and even faster performance Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur beatae ab totam nam nemo error excepturi aliquid vitae. Molestias mollitia totam excepturi laudantium sequi! Adipisci nesciunt neque mollitia minima quasi.</p>
+                        <?php if (!isset($_SESSION['email'])) { ?>
+                                <p><a href="index.php" role="button" class="btn btn-primary btn-block">Order Now</a></p>                                 <?php
+                                }
+                                 else {//We have created a function to check whether this particular product is added to cart or not.
+                                 if (check_if_added_to_cart(4)) { //This is same as if(check_if_added_to_cart != 0)
+                                 echo '<a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>';
+                                }       
+                                 else {?>
+                                 <a href="cart_add.php?id=4" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a>
+                                 <?php
+                                 }
+                                }
+                                ?> 
+                    <!-- <button class="btn btn-primary form-control" type="button" value="Submit"  name="btn">Order Now!</button> -->
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Mobile 5</div>
+                <div class="panel-body" >
+                    <!--put mobile phone pics and its specifications in this box in all pannels. -->
+                    <center><img  class="img-responsive" src="../images/oneplus3t.jpg">
+                    <b> One Plus 3T <br></b>Price:25,999/-</center>
+                    <p>48+12+16MP triple rear camera with telephoto lens + ultrawide angle lens | 16MP front camera with 4K video capture @ 30/60 FPS, ultrashot, nightscape, portrait, pro mode, panorama, HDR, AI scene detection, RAW image
+                        16.63 centimeters (6.55 inch) 90Hz fluid AMOLED with 2400 x 1080 pixels resolution and 402 ppi pixel density
+                        Memory, Storage & SIM: 8GB RAM | 256GB internal memory | Dual SIM (nano+nano) dual-standby (4G+4G)
+                        Oxygen OS based on Android v10 operating system with 2.96GHz </p>
+                        <?php if (!isset($_SESSION['email'])) { ?>
+                                <p><a href="index.php" role="button" class="btn btn-primary btn-block">Order Now</a></p>                                 <?php
+                                }
+                                 else {//We have created a function to check whether this particular product is added to cart or not.
+                                 if (check_if_added_to_cart(5)) { //This is same as if(check_if_added_to_cart != 0)
+                                 echo '<a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>';
+                                }       
+                                 else {?>
+                                 <a href="cart_add.php?id=5" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a>
+                                 <?php
+                                 }
+                                }
+                                ?> 
+                    <!-- <button class="btn btn-primary form-control" type="button" value="Submit"  name="btn" >Order Now!</button> -->
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Mobile 6</div>
+                <div class="panel-body">
+                    <!--put mobile phone pics and its specifications in this box in all pannels. -->
+                    <center><img  class="img-responsive" src="../images/oppoa57.jpg">
+                    <b> Oppo A57 <br></b>Price:22,500/-</center>
+                    <p>Camera: 13 MP Rear camera with LED flash | 16 MP front camera
+                        Display: 11.37 centimeters (5.2-inch) HD display with 1280x720 pixels
+                        Memory, Storage & SIM: 3GB RAM | 32GB storage expandable up to 256GB | Dual nano SIM with dual standby (4G+4G)
+                        Operating System and Processor: Android v6.0 Marshmallow operating system with 1.4GHz Qualcomm MSM8940 octa core processor
+                        Battery: 2900 mAH lithium ion battery providing 11 hours of continuous video watching and lots of more Lorem ipsum, dolor sit </p>
+                        <?php if (!isset($_SESSION['email'])) { ?>
+                                <p><a href="index.php" role="button" class="btn btn-primary btn-block">Order Now</a></p>                                 <?php
+                                }
+                                 else {//We have created a function to check whether this particular product is added to cart or not.
+                                 if (check_if_added_to_cart(6)) { //This is same as if(check_if_added_to_cart != 0)
+                                 echo '<a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>';
+                                }       
+                                 else {?>
+                                 <a href="cart_add.php?id=6" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a>
+                                 <?php
+                                 }
+                                }
+                                ?> 
+                    <!-- <button class="btn btn-primary form-control" type="button" value="Submit"  name="btn">Order Now!</button> -->
+
+
+                </div>
+            </div>
+        </div>			
+     </div>
+    </div>
+</div>
+    
+</body>
+</html>
